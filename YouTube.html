@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Upload & Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+        .video-list {
+            margin-top: 20px;
+        }
+        .video-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>YouTube Video Manager</h1>
+    </header>
+    <main>
+        <div class="container">
+            <!-- Account Creation -->
+            <h2>Create an Account</h2>
+            <form id="accountForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">Create Account</button>
+            </form>
+
+            <!-- Video Upload -->
+            <h2>Upload a Video</h2>
+            <form id="uploadForm">
+                <label for="videoTitle">Video Title:</label>
+                <input type="text" id="videoTitle" required>
+
+                <label for="videoDescription">Video Description:</label>
+                <textarea id="videoDescription" required></textarea>
+
+                <label for="videoFile">Select Video File:</label>
+                <input type="file" id="videoFile" accept="video/*" required>
+
+                <button type="submit">Upload Video</button>
+            </form>
+
+            <!-- Search Videos -->
+            <h2>Search & Manage Videos</h2>
+            <form id="searchForm">
+                <label for="searchQuery">Search Videos:</label>
+                <input type="text" id="searchQuery" placeholder="Enter keywords">
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="video-list" id="videoList">
+                <!-- Videos will be dynamically added here -->
+            </div>
+        </div>
+    </main>
+    <script>
+        // Basic script for demonstration (No backend/API functionality)
+        document.getElementById('accountForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Account created successfully!');
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Video uploaded successfully!');
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchQuery').value;
+            const videoList = document.getElementById('videoList');
+            videoList.innerHTML = `<div class="video-item">
+                <h3>Sample Video</h3>
+                <p>Search query: ${query}</p>
+                <button onclick="playVideo()">Play</button>
+                <button onclick="deleteVideo()">Delete</button>
+            </div>`;
+        });
+
+        function playVideo() {
+            alert('Playing video...');
+        }
+
+        function deleteVideo() {
+            alert('Video deleted.');
+        }
+    </script>
+</body>
+</html>
